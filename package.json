@@ -1,6 +1,6 @@
 {
   "name": "@neutrium/thermo",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "main": "dist/index.js",
   "typings": "dist/index",
   "description": "The base module of the NeutriumJS thermodynamics package.",
@@ -22,7 +22,7 @@
     "url" : "https://github.com/neutrium/thermo/issues"
   },
   "dependencies": {
-    "@neutrium/quantity": "^2.0.0"
+    "@neutrium/quantity": "^3.0.2"
   },
   "scripts": {
       "clean": "rm -r ./dist/*",
