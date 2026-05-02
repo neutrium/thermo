@@ -22,6 +22,8 @@ export abstract class EquationOfState
             noInputs = inputList.length,
             noModes = this.modes.length;
 
+        let modeNum = -1;
+
         for (let i = 0; i < noModes; i++)
         {
             let mode = this.modes[i],
@@ -33,18 +35,19 @@ export abstract class EquationOfState
                 {
                     // An property of this mode is not matched in inputs
                     matched = false;
-                    break;
                 }
             }
 
             if (matched)
             {
-                return i;
+                modeNum = i;
+                break;
             }
             else
             {
-                return -1;
+                modeNum = -1;
             }
         }
+        return modeNum;
     }
 }

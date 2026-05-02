@@ -11,22 +11,24 @@ var EquationOfState = (function () {
     */
     EquationOfState.prototype.findModeIndex = function (inputs) {
         var inputList = Object.keys(inputs), noInputs = inputList.length, noModes = this.modes.length;
+        var modeNum = -1;
         for (var i = 0; i < noModes; i++) {
             var mode = this.modes[i], matched = true;
             for (var j = 0, len = mode.length; j < len; j++) {
                 if (inputList.indexOf(mode[j]) === -1) {
                     // An property of this mode is not matched in inputs
                     matched = false;
-                    break;
                 }
             }
             if (matched) {
-                return i;
+                modeNum = i;
+                break;
             }
             else {
-                return -1;
+                modeNum = -1;
             }
         }
+        return modeNum;
     };
     return EquationOfState;
 }());
