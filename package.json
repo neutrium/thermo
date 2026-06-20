@@ -1,6 +1,6 @@
 {
   "name": "@neutrium/thermo",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "main": "dist/index.js",
   "typings": "dist/index",
   "description": "The base module of the NeutriumJS thermodynamics package.",
@@ -9,7 +9,7 @@
       "thermodynamics"
   ],
   "license": "CC-BY-4.0",
-  "author:": "Trevor Walker <trevorw@neutrium.net> (https://neutrium.net)",
+  "author": "Trevor Walker <trevorw@neutrium.net> (https://neutrium.net)",
   "private": false,
   "engines": {
     "node": ">=0.10.0"

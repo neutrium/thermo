@@ -1,2 +1,2 @@
-export {State} from './State';
-export {EquationOfState} from './EquationOfState';
+export { State } from './State';
+export { EquationOfState } from './EquationOfState';
