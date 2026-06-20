@@ -1,11 +1,11 @@
 "use strict";
+/*
+*	The object representing the thermodynamic state of the fluid
+*
+*	@param {object} initValue An object containing a subset properties in the specified default units
+*/
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.State = void 0;
-/*
-*   The object representing the thermodynamic state of the fluid
-*
-*   @param {object} initValue An object containing a subset properties in the specified default units
-*/
 const quantity_1 = require("@neutrium/quantity");
 const StateProperties_1 = require("./StateProperties");
 const DEFAULT_STATE_PROPERTIES_1 = require("./DEFAULT_STATE_PROPERTIES");
@@ -23,13 +23,14 @@ class State extends StateProperties_1.StateProperties {
         });
     }
     asQty() {
+        const qtyState = new State({});
         Object.keys(this)
             .forEach((key) => {
             if (State.properties.hasOwnProperty(key)) {
-                this[key] = new quantity_1.Quantity(this[key] + State.properties[key].default_units);
+                qtyState[key] = new quantity_1.Quantity(this[key] + State.properties[key].default_units);
             }
         });
-        return this;
+        return qtyState;
     }
 }
 exports.State = State;

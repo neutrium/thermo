@@ -1,5 +1,6 @@
+import { Quantity } from "@neutrium/quantity";
 import { StateProperties } from "./StateProperties";
-export declare class State extends StateProperties {
+export declare class State<T = number> extends StateProperties<T> {
     static properties: {
         p: {
             name: string;
@@ -104,6 +105,6 @@ export declare class State extends StateProperties {
             default_units: string;
         };
     };
-    constructor(initValue: Partial<StateProperties>);
-    asQty(): State;
+    constructor(initValue: Partial<StateProperties<T>>);
+    asQty(): State<Quantity>;
 }
