@@ -1,13 +1,13 @@
-import {State} from "./State";
+import { State } from "./State";
 
-export abstract class EquationOfState
+export abstract class EquationOfState<T = number>
 {
 	protected modes: string[][] = [];
 	public abstract name: string;
 
 	public constructor() {}
 
-	public abstract solve(inputs : any, fluid ?: any) : State;
+	public abstract solve(inputs : any, fluid ?: any) : State<T>;
 
 	/*
 	*   Determines the calculation mode given the provided property inputs

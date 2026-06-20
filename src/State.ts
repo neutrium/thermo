@@ -1,18 +1,19 @@
 /*
-*   The object representing the thermodynamic state of the fluid
+*	The object representing the thermodynamic state of the fluid
 *
-*   @param {object} initValue An object containing a subset properties in the specified default units
+*	@param {object} initValue An object containing a subset properties in the specified default units
 */
+
 import { Quantity } from "@neutrium/quantity";
 import { StateProperties } from "./StateProperties";
 import { DEFAULT_STATE_PROPERTIES } from "./DEFAULT_STATE_PROPERTIES";
 
-export class State extends StateProperties
+export class State<T = number> extends StateProperties<T>
 {
 	// All the properties and the default units the neutrium equations of state use
 	static properties = DEFAULT_STATE_PROPERTIES;
 
-	constructor(initValue: Partial<StateProperties>)
+	constructor(initValue: Partial<StateProperties<T>>)
 	{
 		super();
 
@@ -31,16 +32,18 @@ export class State extends StateProperties
 			});
 	}
 
-	asQty() : State
+	asQty() : State<Quantity>
 	{
+		const qtyState = new State<Quantity>({} as any);
+
 		(Object.keys(this) as Array<keyof typeof State.properties>)
 			.forEach((key) => {
 				if (State.properties.hasOwnProperty(key))
 				{
-					(this as any)[key] = new Quantity(this[key] + State.properties[key].default_units);
+					qtyState[key] = new Quantity(this[key] + State.properties[key].default_units);
 				}
 			});
 
-		return this;
+		return qtyState;
 	}
 }

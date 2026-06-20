@@ -17,8 +17,9 @@ The thermo module can be installed using npm as follows:
 | 1.0.0	  | Initial Release |
 | 2.0.0   | Rename package, switch to Typescript and convert to npm module |
 | 2.1.0   | Modernize the build and improve type consistency |
+| 2.3.0   | Add ability to specify the type of state properties |
 
-## Licence
+## License
 
 This work is licensed under the [Creative Commons Attribution 4.0 International](http://creativecommons.org/licenses/by/4.0/legalcode) License.
 
